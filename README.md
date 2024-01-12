@@ -1,1 +1,1 @@
-NN that predict housing prices
+// Learning NN essentials.
