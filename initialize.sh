@@ -9,7 +9,6 @@ unzip housing-prices-dataset.zip
 # Check if the download was successful
 if [ -f Housing.csv ]; then
     echo "Dataset downloaded successfully."
-    # Run your application
     ./nn
 else
     echo "Failed to download dataset."

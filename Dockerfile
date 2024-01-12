@@ -22,7 +22,7 @@ COPY kaggle.json /root/.kaggle/kaggle.json
 RUN chmod 600 /root/.kaggle/kaggle.json
 
 # Compile the C program
-RUN gcc -o nn nn.c utils/use_log.c utils/print_snapshot.c utils/feature_accessors.c files/read_data.c operations/normalize_data.c operations/calculate_std.c operations/calculate_mean.c operations/shuffle_data.c operations/split_data.c
+RUN gcc -o nn nn.c utils/use_log.c utils/print_snapshot.c utils/feature_accessors.c files/read_data.c operations/normalize_data.c operations/calculate_std.c operations/calculate_mean.c operations/shuffle_data.c operations/split_data.c nn_operations/initialize.c nn_operations/train.c nn_operations/activation_funcs.c nn_operations/backward.c nn_operations/forward.c nn_operations/update_weights.c nn_operations/test.c
 
 # Command to run the startup script
 CMD ["./initialize.sh"]

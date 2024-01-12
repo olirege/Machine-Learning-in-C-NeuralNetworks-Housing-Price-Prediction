@@ -12,3 +12,9 @@ double bathrooms_accessor(HouseData* data) {
 double stories_accessor(HouseData* data) {
     return data->stories;
 }
+double parking_accessor(HouseData* data) {
+    return data->parking;
+}
+double price_accessor(HouseData* data) {
+    return data->price;
+}
