@@ -3,7 +3,7 @@ void backward_propagation(NeuralNetwork *nn, double *input, double target) {
     // Calculate output layer errors
     double *output_layer_errors = (double *)malloc(nn->num_outputs * sizeof(double));
     for (int i = 0; i < nn->num_outputs; i++) {
-        output_layer_errors[i] = (target - nn->output_layer_outputs[i]) * sigmoid_derivative(nn->output_layer_outputs[i]);
+        output_layer_errors[i] = (target - nn->output_layer_outputs[i]) * relu_derivative(nn->output_layer_outputs[i]);
     }
     // Calculate hidden layer errors
     double *hidden_layer_errors = (double *)malloc(nn->num_hidden_layers * sizeof(double));
@@ -12,7 +12,7 @@ void backward_propagation(NeuralNetwork *nn, double *input, double target) {
         for (int j = 0; j < nn->num_outputs; j++) {
             hidden_layer_errors[i] += nn->weights_hidden_output[i * nn->num_outputs + j] * output_layer_errors[j];
         }
-        hidden_layer_errors[i] *= sigmoid_derivative(nn->hidden_layer_outputs[i]);
+        hidden_layer_errors[i] *= relu_derivative(nn->hidden_layer_outputs[i]);
     }
     // Update weights and biases
     for (int i = 0; i < nn->num_hidden_layers; i++) {

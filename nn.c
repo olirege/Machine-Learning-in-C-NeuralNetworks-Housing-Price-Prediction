@@ -50,7 +50,7 @@ int main()
     // Initialize neural network
     _log(__func__, "Initializing neural network...");
     NeuralNetwork nn;
-    if (initialize_neural_network(&nn, 12, 3, 1, 0.012, 5, 1500) != 0)
+    if (initialize_neural_network(&nn, 12, 3, 1, 0.03, 11, 1500) != 0)
     {
         _log(__func__, "Error initializing neural network");
         return 1;

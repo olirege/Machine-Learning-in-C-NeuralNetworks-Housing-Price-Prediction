@@ -10,7 +10,7 @@ void forward_propagation(NeuralNetwork *nn, double *input) {
             hidden_layer_outputs[i] += nn->weights_input_hidden[j * nn->num_hidden_layers + i] * input[j];
         }
         hidden_layer_outputs[i] += nn->bias_hidden[i];
-        hidden_layer_outputs[i] = sigmoid(hidden_layer_outputs[i]);
+        hidden_layer_outputs[i] = relu(hidden_layer_outputs[i]);
     }
     // Calculate output layer outputs
     double *output_layer_outputs = (double *)malloc(nn->num_outputs * sizeof(double));
@@ -20,7 +20,7 @@ void forward_propagation(NeuralNetwork *nn, double *input) {
             output_layer_outputs[i] += nn->weights_hidden_output[j * nn->num_outputs + i] * hidden_layer_outputs[j];
         }
         output_layer_outputs[i] += nn->bias_output[i];
-        output_layer_outputs[i] = sigmoid(output_layer_outputs[i]);
+        output_layer_outputs[i] = relu(output_layer_outputs[i]);
     }
     // Store outputs in neural network
     nn->hidden_layer_outputs = hidden_layer_outputs;
