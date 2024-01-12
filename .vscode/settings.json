@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "nn.h": "c",
-        "utils.h": "c"
+        "utils.h": "c",
+        "operations.h": "c"
     }
 }
